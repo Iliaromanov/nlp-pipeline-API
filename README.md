@@ -5,7 +5,7 @@ This API was built as a microservice for my Resume Chatbot web app, but is usefu
 
 ## Why Preprocess Text Data?
 
-Preprocessing free text data is a crucial step in making that data usable for analysis and machine learning model training. Raw text data may contain unwanted or unimportant text which reduces the accuracy and efficiency during model training and might make the data hard to understand/analyze. NLP is necessary to highlight the attributes that you're going to want your machine learning system to pick up on.
+Preprocessing free text data is a crucial step in making that data usable for analysis and machine learning model training. Raw text data may contain unwanted or unimportant text which reduces the accuracy and efficiency during model training and might make the data hard to understand/analyze. NLP is necessary to highlight the attributes of the data that you want your machine learning system to pick up on.
 
 ## Usage
 
