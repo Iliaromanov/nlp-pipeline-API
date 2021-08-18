@@ -20,4 +20,7 @@ def apply_nlp(payload: SentenceRequest):
     known_words = payload.known_words
     nlp = nlp_pipelines.get(nlp_name, nltk_POS_lemmatizer)
 
-    return {"bag": bag_words(sentence, known_words, nlp)}
+    return {
+        "processed_words": nlp(sentence),
+        "bag": bag_words(sentence, known_words, nlp)
+    }
