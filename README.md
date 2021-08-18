@@ -1,7 +1,7 @@
 # NLP-pipeline-API
-REST API that applies natural language processing pipelines to provided raw text data.Built using Python FastAPI. 
+REST API that applies natural language processing pipelines to provided raw text data.
 
-This API was built as a microservice for my Resume Chatbot web app, but is useful for any NLP related tasks.
+*This API was built mainly as a microservice for my Resume Chatbot web app, but can be useful for any other NLP related projects.*
 
 <img src="https://img.shields.io/badge/-Python-dark_green" /> <img src="https://img.shields.io/badge/-FastAPI-blue" /> <img src="https://img.shields.io/badge/-NLTK-yellow" />
 
