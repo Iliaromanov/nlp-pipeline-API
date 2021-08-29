@@ -5,10 +5,6 @@ REST API that applies natural language processing pipelines to provided raw text
 
 <img src="https://img.shields.io/badge/-Python-dark_green" /> <img src="https://img.shields.io/badge/-FastAPI-blue" /> <img src="https://img.shields.io/badge/-NLTK-yellow" />
 
-## Why Preprocess Text Data?
-
-Preprocessing free text data is a crucial step in making that data usable for analysis and machine learning model development. Raw text data may contain unwanted or unimportant text which reduces the accuracy and efficiency during model training and might make the data hard to understand/analyze. NLP is necessary to highlight the attributes of the data that you want your machine learning system to pick up on.
-
 ## Usage
 
 url: https://nlp-pipeline-api.herokuapp.com/
@@ -46,3 +42,7 @@ Currently available NLP pipelines:
 - **nltk_stemmer**: tokenizes sentence, then applies `nltk.stem.lancaster.LancasterStemmer()` and removes punctuation symbols.
 - **nltk_no_POS_lemmatizer**: tokenizes sentence, then applies `nltk.stem.WordNetLemmatizer()` *without providing wordnet Part of Sentence (POS) tags for tokens* and removes punctuation symbols.
 - **nltk_POS_lemmatizer**: same as **nltk_no_POS_lemmatizer**, except POS tags are identified and passed to the `WordNetLemmatizer()` for each word token.
+
+## Why Preprocess Text Data?
+
+Preprocessing free text data is a crucial step in making that data usable for analysis and machine learning model development. Raw text data may contain unwanted or unimportant text which reduces the accuracy and efficiency during model training and might make the data hard to understand/analyze. NLP is necessary to highlight the attributes of the data that you want your machine learning system to pick up on.
