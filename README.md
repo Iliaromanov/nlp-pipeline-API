@@ -9,6 +9,8 @@ REST API that applies natural language processing pipelines to provided raw text
 
 url: https://nlp-pipeline-api.herokuapp.com/
 
+methods: POST
+
 Sample JSON request body:
 ```yaml
 {
