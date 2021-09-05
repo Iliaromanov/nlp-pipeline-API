@@ -1,5 +1,5 @@
 # NLP-pipeline-API
-REST API that applies natural language processing pipelines to provided raw text data.
+REST API that applies natural language processing (NLP) pipelines to provided raw text data.
 
 *This API was built mainly as a microservice for my <a href="https://github.com/Iliaromanov/Resume-Chatbot-WebApp">Resume Chatbot web app</a>, but can be useful for any other NLP related projects.*
 
