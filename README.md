@@ -3,7 +3,10 @@ REST API that applies natural language processing (NLP) pipelines to provided ra
 
 *This API was built mainly as a microservice for my <a href="https://github.com/Iliaromanov/Resume-Chatbot-WebApp">Resume Chatbot web app</a>, but can be useful for any other NLP related projects.*
 
-<img src="https://img.shields.io/badge/-Python-dark_green" /> <img src="https://img.shields.io/badge/-FastAPI-blue" /> <img src="https://img.shields.io/badge/-NLTK-yellow" />
+![Python](https://img.shields.io/badge/-Python-05122A?style=flat&logo=Python)
+![FastAPI](https://img.shields.io/badge/-FastAPI-05122A?style=flat&logo=FastAPI)
+![NLTK](https://img.shields.io/badge/-NLTK-05122A?style=flat&logo=NLTK)
+
 
 ## Usage
 
