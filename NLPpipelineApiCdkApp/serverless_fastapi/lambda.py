@@ -1,8 +1,6 @@
-import os
 import logging
 
-from .nlp_pipelines import *
-from typing import List, Optional
+from .nlp_pipelines import nlp_pipelines, nltk_POS_lemmatizer, bag_words
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -16,8 +14,9 @@ def apply_nlp(payload):
 
     return {
         "processed_words": nlp(sentence),
-        "bag": bag_words(sentence, known_words, nlp)
+        "bag": bag_words(sentence, known_words, nlp),
     }
+
 
 def lambda_handler(event, context):
     try:
@@ -30,9 +29,7 @@ def lambda_handler(event, context):
             # patch host header
             headers["Host"] = cf_host
             event["multiValueHeaders"]["Host"] = [cf_host]
-            logger.info(
-                f"Host header is successfully patched to {cf_host}"
-            )
+            logger.info(f"Host header is successfully patched to {cf_host}")
 
         return apply_nlp(event)
     except:  # noqa
