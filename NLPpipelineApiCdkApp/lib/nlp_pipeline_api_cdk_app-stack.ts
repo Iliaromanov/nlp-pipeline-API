@@ -54,7 +54,7 @@ export class NlPpipelineApiCdkAppStack extends cdk.Stack {
     let apiLambda = new lambda.Function(this, "NlpLambda", {
       functionName: "nlp-pipeline-lambda",
       code: lambda.Code.fromAsset(__dirname + "/../build-python"), // creating by make
-      runtime: lambda.Runtime.PYTHON_3_8,
+      runtime: lambda.Runtime.PYTHON_3_9,
       handler: "serverless_fastapi.lambda.lambda_handler",
       role: lambdaRole,
       timeout: Duration.seconds(30),
@@ -77,7 +77,7 @@ export class NlPpipelineApiCdkAppStack extends cdk.Stack {
     // 1. Remove stage name prefix from url (eg. /prod/my-url => /my-url)
     // 2. For caching responses
     if (this.node.tryGetContext("stage") !== "dev") { // no need for cdn in dev
-      let cdn = new cloudfront.Distribution(this, "CDN", {
+      let cdn = new cloudfront.Distribution(this, "nlp-pipelineCDN", {
         defaultBehavior: {
           // CloudFront function to modify "Host" header to pass to lanbda; modifies
           //  the request object and puts "Host" value into "x-forwarded-host" to allow
@@ -85,7 +85,7 @@ export class NlPpipelineApiCdkAppStack extends cdk.Stack {
           // https://stackoverflow.com/questions/39222208/forwarding-cloudfront-host-header-to-api-gateway
           functionAssociations: [{
             eventType: cloudfront.FunctionEventType.VIEWER_REQUEST,
-            function: new cloudfront.Function(this, "RewriteCdnHost", {
+            function: new cloudfront.Function(this, "nlp-pipelineRewriteCdnHost", {
               functionName: `${this.account}${this.stackName}RewriteCdnHostFunctionProd`,
               // documentation: 
               //https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/functions-event-structure.html#functions-event-structure-example
@@ -114,9 +114,9 @@ export class NlPpipelineApiCdkAppStack extends cdk.Stack {
           cachedMethods: cloudfront.CachedMethods.CACHE_GET_HEAD_OPTIONS,
           allowedMethods: cloudfront.AllowedMethods.ALLOW_ALL,
           compress: true,
-          cachePolicy: new cloudfront.CachePolicy(this, 'DefaultCachePolicy', {
+          cachePolicy: new cloudfront.CachePolicy(this, 'nlp-pipelineDefaultCachePolicy', {
               // need to be overriden because the names are not automatically randomized across stages
-              cachePolicyName: `CachePolicy-prod`,
+              cachePolicyName: `nlp-pipelineCachePolicy-prod`,
               headerBehavior: cloudfront.OriginRequestHeaderBehavior.allowList("x-forwarded-host"),
               // allow Flask session variable
               cookieBehavior: cloudfront.CacheCookieBehavior.allowList("session"),
