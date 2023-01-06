@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
-import { NlPpipelineApiCdkAppStack } from '../lib/nl_ppipeline_api_cdk_app-stack';
+import { NlPpipelineApiCdkAppStack } from '../lib/nlp_pipeline_api_cdk_app-stack';
 
 const app = new cdk.App();
 new NlPpipelineApiCdkAppStack(app, 'NlPpipelineApiCdkAppStack', {

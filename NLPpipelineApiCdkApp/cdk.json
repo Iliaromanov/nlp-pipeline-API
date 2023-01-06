@@ -1,5 +1,5 @@
 {
-  "app": "npx ts-node --prefer-ts-exts bin/nl_ppipeline_api_cdk_app.ts",
+  "app": "npx ts-node --prefer-ts-exts bin/nlp_pipeline_api_cdk_app.ts",
   "watch": {
     "include": [
       "**"
