@@ -59,6 +59,9 @@ export class NlPpipelineApiCdkAppStack extends cdk.Stack {
       role: lambdaRole,
       timeout: Duration.seconds(30),
       memorySize: 256,
+      environment: {
+        "NLTK_DATA": "./nltk_data"
+      }
       // logRetention: logs.RetentionDays.SIX_MONTHS, // default is infinite
     })
 
