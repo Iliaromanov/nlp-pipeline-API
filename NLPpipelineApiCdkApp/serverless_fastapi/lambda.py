@@ -1,4 +1,5 @@
 import logging
+import json
 
 from .nlp_pipelines import nlp_pipelines, nltk_POS_lemmatizer, bag_words
 
@@ -12,9 +13,19 @@ def apply_nlp(payload):
     known_words = payload["known_words"]
     nlp = nlp_pipelines.get(nlp_name, nltk_POS_lemmatizer)
 
+    print("PROCESSING WORDS: ")
+    print("processed words: ", nlp(sentence))
+    print("bagging words: ", bag_words(sentence, known_words, nlp))
+
     return {
-        "processed_words": nlp(sentence),
-        "bag": bag_words(sentence, known_words, nlp),
+        "statusCode": 200,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "body": json.dumps({
+            "processed_words": nlp(sentence),
+            "bag": bag_words(sentence, known_words, nlp),
+        })
     }
 
 
@@ -31,7 +42,7 @@ def lambda_handler(event, context):
             event["multiValueHeaders"]["Host"] = [cf_host]
             logger.info(f"Host header is successfully patched to {cf_host}")
 
-        return apply_nlp(event)
+        return apply_nlp(json.loads(event["body"]))
     except:  # noqa
         logger.exception("Exception handling lambda")
         raise
