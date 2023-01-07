@@ -10,9 +10,10 @@ REST API that applies natural language processing (NLP) pipelines to provided ra
 
 ## Usage
 
-url: https://nlp-pipeline-api.herokuapp.com/
+<!-- url: https://nlp-pipeline-api.herokuapp.com/ -->
+url: `https://d3mkv8nbq5byz9.cloudfront.net`
 
-methods: POST
+methods: `POST`
 
 Sample JSON request body:
 ```yaml
