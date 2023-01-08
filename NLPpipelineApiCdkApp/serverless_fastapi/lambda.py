@@ -1,6 +1,6 @@
 import logging
 import json
-from typing import Dict
+from typing import Dict, Any
 
 from .nlp_pipelines import nlp_pipelines, nltk_POS_lemmatizer, bag_words
 
@@ -8,7 +8,7 @@ logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
 
-def apply_nlp(payload: Dict[str]):
+def apply_nlp(payload: Dict[str, Any]):
     sentence = payload.get("sentence", None)
     nlp_name = payload.get("nlp_pipeline", "nltk_POS_lemmatizer")
     known_words = payload.get("known_words", None)
