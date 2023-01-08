@@ -16,13 +16,13 @@ def apply_nlp(payload: Dict[str]):
 
     return {
         "statusCode": 200,
-        "headers": {
-            "Content-Type": "application/json"
-        },
-        "body": json.dumps({
-            "processed_words": nlp(sentence),
-            "bag": bag_words(sentence, known_words, nlp),
-        })
+        "headers": {"Content-Type": "application/json"},
+        "body": json.dumps(
+            {
+                "processed_words": nlp(sentence),
+                "bag": bag_words(sentence, known_words, nlp),
+            }
+        ),
     }
 
 
